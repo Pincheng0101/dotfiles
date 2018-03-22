@@ -14,7 +14,7 @@ endif
 all: dotfiles $(DIST)
 
 dotfiles: $(DOTFILES)
-	mkdir ~/.bin
+	mkdir -p ~/.bin
 	cp -r $^ $(HOME)
 
 # install clang-formt
