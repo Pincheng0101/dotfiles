@@ -11,18 +11,20 @@ ifeq ($(UNAME), Darwin)
 endif
 endif
 
+define install_clang-format
+	curl -O http://releases.llvm.org/6.0.0/clang+llvm-6.0.0-$(1).tar.xz
+	tar Jxf clang+llvm-6.0.0-$(1).tar.xz
+	cp clang+llvm-6.0.0-$(1)/bin/clang-format ~/.bin/
+endef
+
 all: dotfiles $(DIST)
 
 dotfiles: $(DOTFILES)
 	mkdir -p ~/.bin
 	cp -r $^ $(HOME)
 
-# install clang-formt
+# install clang-format
 Ubuntu:
-	curl http://releases.llvm.org/6.0.0/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04.tar.xz > clang-format.tar.xz
-	tar Jxf clang-format.tar.xz
-	mv clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-14.04/bin/clang-format ~/.bin/
+	$(call install_clang-format,x86_64-linux-gnu-ubuntu-14.04)
 Darwin:
-	curl http://releases.llvm.org/6.0.0/clang+llvm-6.0.0-x86_64-apple-darwin.tar.xz > clang-format.tar.xz
-	tar Jxf clang-format.tar.xz
-	mv clang+llvm-6.0.0-x86_64-apple-darwin/bin/clang-format ~/.bin/
+	$(call install_clang-format,x86_64-apple-darwin)
