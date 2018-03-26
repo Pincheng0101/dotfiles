@@ -36,3 +36,7 @@ Ubuntu:
 Darwin:
 	$(call install_clang-format,x86_64-apple-darwin)
 	$(call install_git-fls,darwin-amd64)
+
+CLEAN_FILES=$(shell echo $(DOTFILES) | sed 's/git\//~\//g' | sed 's/clang-format\//~\//g')
+clean:
+	rm -r $(CLEAN_FILES) ~/.bin
