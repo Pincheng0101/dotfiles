@@ -17,7 +17,7 @@ define install_clang-format
 	cp clang+llvm-6.0.0-$(1)/bin/clang-format ~/.bin/
 endef
 
-define install_git-fls
+define install_git-lfs
 	curl -O -L https://github.com/git-lfs/git-lfs/releases/download/v2.4.0/git-lfs-$(1)-2.4.0.tar.gz
 	tar zxf git-lfs-$(1)-2.4.0.tar.gz
 	cp git-lfs-2.4.0/git-lfs ~/.bin/
@@ -32,10 +32,10 @@ dotfiles: $(DOTFILES)
 # install clang-format, git-lfs
 Ubuntu:
 	$(call install_clang-format,x86_64-linux-gnu-ubuntu-14.04)
-	$(call install_git-fls,linux-amd64)
+	$(call install_git-lfs,linux-amd64)
 Darwin:
 	$(call install_clang-format,x86_64-apple-darwin)
-	$(call install_git-fls,darwin-amd64)
+	$(call install_git-lfs,darwin-amd64)
 
 CLEAN_FILES=$(shell echo $(DOTFILES) | sed 's/git\//~\//g' | sed 's/clang-format\//~\//g')
 clean:
