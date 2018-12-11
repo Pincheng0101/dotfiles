@@ -1,6 +1,7 @@
 
 DOTFILES=clang-format/.[0-9a-zA-Z_]* \
-		 git/.[0-9a-zA-Z_]*
+		 git/.[0-9a-zA-Z_]* \
+		 vim/.[0-9a-zA-Z_]*
 
 UNAME=$(shell uname)
 ifeq ($(UNAME), Linux)
@@ -23,9 +24,15 @@ define install_git-lfs
 	cp git-lfs-2.4.0/git-lfs ~/.bin/
 endef
 
+define install_spf13-vim
+	bash -c "sh <(curl https://j.mp/spf13-vim3 -L)"
+endef
+
 all: dotfiles $(DIST)
 
 dotfiles: $(DOTFILES)
+	$(call install_spf13-vim)
+
 	mkdir -p ~/.bin
 	cp -r $^ $(HOME)
 

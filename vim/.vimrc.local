@@ -1,0 +1,4 @@
+autocmd FileType go set noexpandtab
+
+map <C-K> :py3f ~/.clang-format.py<cr>
+imap <C-K> <c-o>:py3f ~/.clang-format.py<cr>
