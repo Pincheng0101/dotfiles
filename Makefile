@@ -1,7 +1,8 @@
 
 DOTFILES=clang-format/.[0-9a-zA-Z_]* \
 		 git/.[0-9a-zA-Z_]* \
-		 vim/.[0-9a-zA-Z_]*
+		 vim/.[0-9a-zA-Z_]* \
+		 zsh/.[0-9a-zA-Z_]*
 
 UNAME=$(shell uname)
 ifeq ($(UNAME), Linux)
