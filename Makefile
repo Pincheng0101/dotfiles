@@ -45,6 +45,6 @@ Darwin:
 	$(call install_clang-format,x86_64-apple-darwin)
 	$(call install_git-lfs,darwin-amd64)
 
-CLEAN_FILES=$(shell echo $(DOTFILES) | sed 's/git\//~\//g' | sed 's/clang-format\//~\//g')
+CLEAN_FILES=$(shell echo $(DOTFILES) | sed 's/git\//~\//g' | sed 's/clang-format\//~\//g' | sed 's/vim\//~\//g' | sed 's/zsh\//~\//g')
 clean:
 	rm -r $(CLEAN_FILES) ~/.bin
