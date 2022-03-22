@@ -9,3 +9,4 @@ My config and tools.
 * [git-open](https://github.com/paulirish/git-open): Type `git open` to open the repo website (GitHub, GitLab, Bitbucket) in your browser.
 * [git-lfs](https://github.com/git-lfs/git-lfs): Git extension for versioning large files.
 * [clang-format](https://clang.llvm.org/docs/ClangFormat.html): A tool to format C/C++/Java/JavaScript/Objective-C/Protobuf code.
+* [SpaceVim](https://spacevim.org/): SpaceVim is a distribution of the Vim editor that’s inspired by spacemacs.
